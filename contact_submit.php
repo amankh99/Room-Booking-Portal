@@ -22,7 +22,7 @@
 
 ?>
 <h1 style="text-align:center;"> You are Not Authorized To visit this page</h1>
-<meta http-equiv='refresh' content='0; url=/main.php'>
+<meta http-equiv='refresh' content='0; url=main.php'>
 <?php
 }
     include_once $path."/common/footer.php";

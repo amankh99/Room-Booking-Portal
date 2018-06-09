@@ -1,6 +1,6 @@
 <?php
 $path=$_SERVER['DOCUMENT_ROOT']."/ids/Room-Booking-Portal"; 
-$pageTitle = "IIIT Room Booking Portal";
+$pageTitle = "IIT Mandi Room Booking Portal";
 session_start();
  if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']) &&($_SESSION['Admin'] == 'yes')):
  ?><meta http-equiv="refresh" content="0;/query.php"><?php

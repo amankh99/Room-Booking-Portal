@@ -1,5 +1,5 @@
 body {
-    background: url(http://thekitemap.com/images/feedback-img.jpg) no-repeat;
+    /*background: url(http://thekitemap.com/images/feedback-img.jpg) no-repeat;*/
     background-size: cover;
     height: 100%;
     background-attachment: fixed;
@@ -420,11 +420,31 @@ textarea:focus {
 }
 
 #button-blue:hover {
-    background-color: rgba(0, 0, 0, 0);
+    /*background-color: rgba(0, 0, 0, 0);*/
     color: #333;
 }
 
-#button-blue2 {
+.styled-select {
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 3px;  
+  overflow: hidden;
+  position: relative;
+}
+
+.styled-select, .styled-select select { width: 240px;}
+select:focus { outline: none; }
+.styled-select select {
+  height: 34px;
+  padding: 5px 0 5px 5px;
+  background: transparent;
+  border: none;
+  
+  /*hide default down arrow in webkit */
+  -webkit-appearance: none; 
+}
+
+.button-blue2 {
     background-color:#30aed6; /* Green */
     width: 24%;
     border: none;
