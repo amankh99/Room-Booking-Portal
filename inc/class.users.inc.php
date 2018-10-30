@@ -43,7 +43,7 @@ class RoomBookingUsers
             if($row['theCount']!=0) {
                   $err =  "Sorry, that User Name is already in use. ";
 					// include_once $path."/common/footer.php";
-					// echo "<meta http-equiv='refresh' content='3; url=/main.php'>";
+					// echo "<meta http-equiv='refresh' content='3; url=main.php'>";
 					// echo "2";
                     return;
             }
@@ -72,14 +72,14 @@ class RoomBookingUsers
                     // . "created with the username <strong>$u</strong>."
                     // . " Check your email!";
 					// include_once $path."/common/footer.php";
-					// echo "<meta http-equiv='refresh' content='3; url=/main.php'>";
+					// echo "<meta http-equiv='refresh' content='3; url=main.php'>";
 				return TRUE;
             
         } else {
             echo "<h2> Error </h2><p> Couldn't insert the "
                 . "user information into the database. </p>";
 				// include_once $path."/common/footer.php";
-				// echo "<meta http-equiv='refresh' content='3; url=/main.php'>";
+				// echo "<meta http-equiv='refresh' content='3; url=main.php'>";
 				return;
 		}
 		        
@@ -92,12 +92,12 @@ class RoomBookingUsers
         $subject = "[Colored Lists] Please Verify Your Account";
  
         $headers = <<<MESSAGE
-		From: IIIT Room Booking Portal
+		From: IIT Mandi Booking Portal
 		Content-Type: text/plain;
 MESSAGE;
 
 		        $msg = <<<EMAIL
-		You have a new account at Colored Lists!
+		You have a new account.
 
 		To get started, please activate your account and choose a
 		password by following the link below.
@@ -111,14 +111,12 @@ MESSAGE;
 		--
 		Thanks!
 
-		Chris and Jason
-		www.ColoredLists.com
 EMAIL;
  
         return mail($to, $subject, $msg, $headers);
     }
-	public function accountLogin()
-{
+
+	public function accountLogin(){
     $sql = "SELECT *
             FROM User
             WHERE Username=:uname
@@ -146,6 +144,9 @@ EMAIL;
             $_SESSION['Username'] = htmlentities($this->test_input($_POST['uname']), ENT_QUOTES);
             $_SESSION['Admin'] = 'no' ;
             $_SESSION['LoggedIn'] = 1;
+            $_SESSION['token'] = substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,16);
+            $data = $stmt->fetchAll();
+            $_SESSION['Userid'] = $data[0]["UserID"];
             return TRUE;
         }
         else
@@ -200,14 +201,14 @@ class contact{
               echo "<h2> ThankYou For Contacting Us </h2>"
                     . "<p> We would get back to you shortly .</p>";
 					include_once $path."/common/footer.php";
-					//echo "<meta http-equiv='refresh' content='3; url=/main.php'>";
+					//echo "<meta http-equiv='refresh' content='3; url=main.php'>";
 				return;
             
         } else {
             echo "<h2> Error </h2><p> Couldn't insert the "
                 . "user information into the database. </p>";
 				include_once $path."/common/footer.php";
-				echo "<meta http-equiv='refresh' content='3; url=/main.php'>";
+				echo "<meta http-equiv='refresh' content='3; url=main.php'>";
 				return;
 		}
 		        
@@ -253,14 +254,14 @@ class bug{
               echo "<h2> ThankYou For Reporting Us </h2>"
                     . "<p> We would get back to you shortly .</p>";
 					include_once $path."/common/footer.php";
-					//echo "<meta http-equiv='refresh' content='3; url=/main.php'>";
+					//echo "<meta http-equiv='refresh' content='3; url=main.php'>";
 				return;
             
         } else {
             echo "<h2> Error </h2><p> Couldn't insert the "
                 . "user information into the database. </p>";
 				include_once $path."/common/footer.php";
-				echo "<meta http-equiv='refresh' content='3; url=/main.php'>";
+				echo "<meta http-equiv='refresh' content='3; url=main.php'>";
 				return;
 		}
 		        
@@ -309,6 +310,9 @@ public function accountLogin()
             $_SESSION['Username'] = htmlentities($this->test_input($_POST['uname']), ENT_QUOTES);
             $_SESSION['LoggedIn'] = 1;
             $_SESSION['Admin'] = 'yes' ;
+            $_SESSION['token'] = substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,16);
+            $data = $stmt->fetchAll();
+            $_SESSION['Userid'] = $data[0]["UserID"];
             return TRUE;
         }
         else
@@ -372,7 +376,7 @@ class populate{
                 // echo $name;
                 break;
             }
-            }
+        }
 
         $sql = "INSERT INTO Bookings(Room_id, Booking_start_date , Booking_end_date,User_id )
                 VALUES(:id, :start, :end1 , :uid)";
@@ -383,7 +387,7 @@ class populate{
             $stmt->bindParam(":id", $r, PDO::PARAM_STR);
             $stmt->execute();
             echo "Success";
-    }
+        }
 require 'PHPMailerAutoload.php';
 
 $mail = new PHPMailer;
@@ -399,9 +403,10 @@ $mail->Password = 'saksham9';                           // SMTP password
 $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 465;                                    // TCP port to connect to
 echo !extension_loaded('openssl')?"Not Available":"Available";
-$mail->setFrom('from@example.com', 'Mailer');
-$mail->addAddress('saksham.gupta@research.iiit.ac.in', 'Saksham Gupta');     // Add a recipient
-//$mail->addCC('cc@example.com');
+$mail->setFrom('from@example.com', 'IItmandi booking portal');
+$mail->addAddress('b16060@students.iitmandi.ac.in', 'Lakshay arora');     // Add a recipient
+$mail->addCC('b16007@students.iitmandi.ac.in');
+$mail->addCC('b16037@students.iitmandi.ac.in');
 //$mail->addBCC('bcc@example.com');
 
 //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
@@ -409,7 +414,7 @@ $mail->addAddress('saksham.gupta@research.iiit.ac.in', 'Saksham Gupta');     // 
 $mail->isHTML(true);                                  // Set email format to HTML
 
 $mail->Subject = 'Room Booking Conformation';
-$mail->Body    = 'There is a Room Booking by'.$_SESSION['Username'].'from'.$a.'to'.$b.'for Room id'.$r;
+$mail->Body    = 'There is a Room Booking by '.$_SESSION['Username'].' from '.$a.' to '.$b.' for Room id'.$r;
 //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
 if(!$mail->send()) {
@@ -419,7 +424,68 @@ if(!$mail->send()) {
     //echo 'Message has been sent';
 }
 
-}  
+}
+
+public function bookHostel(){
+        $connection = $this->_db;
+        $r = $this->test_input($_POST['hostel']);
+        $user = $connection->prepare('SELECT * FROM User');
+        $user->execute();
+        $user_row = $user->fetchAll();
+        foreach ($user_row as $user_name) {
+            if($_SESSION['Username'] == $user_name['Username']){
+                $name = $user_name['UserID'];
+                // echo $name;
+                break;
+            }
+        }
+
+        $sql = "INSERT INTO HostelBookings(Hostel_id, room, User_id)
+                VALUES(:id, :room, :uid)";
+        $room_no = ($_POST['floor'] . $_POST['room_no']);
+        if($stmt = $this->_db->prepare($sql)) {
+            $stmt->bindParam(":uid", $name, PDO::PARAM_STR);
+            $stmt->bindParam(":room", $room_no, PDO::PARAM_STR);
+            $stmt->bindParam(":id", $r, PDO::PARAM_STR);
+            $stmt->execute();
+            echo "Success";
+        }
+        require 'PHPMailerAutoload.php';
+
+$mail = new PHPMailer;
+
+//$mail->SMTPDebug = 3;                               // Enable verbose debug output
+
+$mail->isSMTP();                                      // Set mailer to use SMTP
+$mail->Host = "ssl://smtp.gmail.com";
+//$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+$mail->SMTPAuth = true;                               // Enable SMTP authentication
+$mail->Username = 'iiitroombook@gmail.com';                 // SMTP username
+$mail->Password = 'saksham9';                           // SMTP password
+$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+$mail->Port = 465;                                    // TCP port to connect to
+echo !extension_loaded('openssl')?"Not Available":"Available";
+$mail->setFrom('iitmandibooking@iitmandi.ac.in', 'IItmandi Booking Portal');
+$mail->addAddress('b16060@students.iitmandi.ac.in', 'Lakshay arora');     // Add a recipient
+$mail->addCC('b16007@students.iitmandi.ac.in');
+$mail->addCC('b16037@students.iitmandi.ac.in');
+//$mail->addBCC('bcc@example.com');
+
+//$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+$mail->isHTML(true);                                  // Set email format to HTML
+
+$mail->Subject = 'Room Booking Conformation';
+$mail->Body    = 'You have successfully booked hostel ' . $room_no . ' for current session';
+//$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+if(!$mail->send()) {
+    echo 'Message could not be sent.';
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+} else {
+    //echo 'Message has been sent';
+}
+}
     public function date($q){
         // $q = 1;
         $id = $q;
@@ -465,6 +531,7 @@ if(!$mail->send()) {
         $temp =1 ;
         // echo $name;
         foreach ($data as $row) {
+            // var_dump($row);
             if($row['User_id'] == $name){
                 // echo "Yes";
                 $start=$row['Booking_start_date'];
@@ -472,8 +539,8 @@ if(!$mail->send()) {
                 $room = $row['Room_id'];
                 // echo $start . $end  .$room;
                 foreach ($room1 as $row_room) {
-                    if($row_room['Room_id'] == $room){
-                        $room_name = $row_room['Room_name'];
+                    if($row_room['RoomId'] == $room){
+                        $room_name = $row_room['RoomName'];
                         break;
                     }
                 }

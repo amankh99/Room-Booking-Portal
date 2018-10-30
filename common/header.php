@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<title><?php echo $pageTitle?></title>
-		<link rel="favicon icon" type="image/x-icon" href="https://www.iiit.ac.in/favicon.ico" />
+		<link rel="favicon icon" type="image/x-icon" href="https://iitmandi.ac.in/images/favicon.ico" />
 		<link rel="stylesheet" href="css/style.css" type="text/css" />
 		<!--<link rel="stylesheet" href="css/datepicker.css" type="text/css" />-->
     	<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js?ver=1.3.2'></script>

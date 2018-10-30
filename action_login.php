@@ -16,14 +16,14 @@
         if($users->accountLogin()===TRUE):
             echo "<h1> You Have Successfully Logged In";
         ?>
-        <meta http-equiv='refresh' content='0; url=/new_booking1.php'>
+        <meta http-equiv='refresh' content='0; url=new_booking1.php'>
         <?php
             exit;
         else:
 ?>
  
         <h1>Login Failed</h1>
-        <meta http-equiv='refresh' content='3; url=/main.php'>
+        <meta http-equiv='refresh' content='3; url=main.php'>
 
 <?php
     endif;

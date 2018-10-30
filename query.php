@@ -41,6 +41,6 @@ th {
 
 <?php 
 else:
-        echo "<meta http-equiv='refresh' content='0; url=/main.php'>";
+        echo "<meta http-equiv='refresh' content='0; url=main.php'>";
 	endif;
 include_once $path.'/common/footer_admin.php';?>

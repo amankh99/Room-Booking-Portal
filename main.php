@@ -1,6 +1,6 @@
 <?php
 $path=$_SERVER['DOCUMENT_ROOT']."/ids/Room-Booking-Portal"; 
-$pageTitle = "IIIT Room Booking Portal";
+$pageTitle = "IIT Mandi Room Booking Portal";
 session_start();
 include_once $path.'/common/header.php';?>
 <?php include_once $path.'/common/navbar_w_login.php';?>

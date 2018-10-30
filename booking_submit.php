@@ -10,9 +10,13 @@ include_once $path.'/common/header.php';
 ?>
         <p>You are not <strong>logged in.</strong></p>
         <?php else :
-        $a = date('Y-m-d',strtotime($_POST['date1']));
-        $b = date('Y-m-d',strtotime($_POST['date2']));
-        echo $users->book($a,$b); 
+        if(isset($_POST['room'])) {
+            $a = date('Y-m-d',strtotime($_POST['date1']));
+            $b = date('Y-m-d',strtotime($_POST['date2']));
+            echo $users->book($a,$b); 
+        } else {
+            echo $users->bookHostel(); 
+        }
         ?>
 <div id = "main">
 </div>

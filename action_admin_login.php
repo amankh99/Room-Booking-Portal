@@ -15,14 +15,14 @@
         $users = new RoomBookingAdmin($db);
         if($users->accountLogin()===TRUE):
             include_once $path."/common/admin_navbar.php";
-            echo "<meta http-equiv='refresh' content='0; url=/query.php'>";
+            echo "<meta http-equiv='refresh' content='0; url=query.php'>";
             echo "<h1> You Have Successfully Logged In";
             exit;
         else:
 ?>
  
         <h1>Login Failed</h1>
-        <meta http-equiv='refresh' content='3; url=/main.php'>
+        <meta http-equiv='refresh' content='3; url=main.php'>
 
 <?php
     endif;

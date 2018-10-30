@@ -1,8 +1,6 @@
 Introduction
 ================
 
-
-
 ## Motivation
 
 Room Booking Portal allows users to books rooms in _IIT_ _Mandi_.
@@ -39,8 +37,9 @@ submit button.
 6. Users can check their previous and current bookings in My Bookings.
 
 ## Contributors
-	-Saksham Gupta
-	-Garuna
+	Aman Khandelwal
+	Suryavanshi
+	Lakshya arora
 
 
 ## Contact us and Bug Report
