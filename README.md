@@ -5,8 +5,8 @@ Introduction
 
 ## Motivation
 
-Room Booking Portal allows users to books rooms in _IIIT_ _Hyderabad_.
-Portal include rooms like CR1, CR2, SH1 etc.
+Room Booking Portal allows users to books rooms in _IIT_ _Mandi_.
+Portal include rooms like A1, A2, A3, A9 etc.
 
 ## PreRequisties
 	- Browser
